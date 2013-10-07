@@ -1,0 +1,30 @@
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span>whoami<span class="sb">`</span> !<span class="o">=</span> <span class="s1">&#39;root&#39;</span> <span class="o">]</span>
+<span class="k">then</span>
+<span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;need root!&quot;</span>
+    <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+<span class="c"># Change this to your interface name, could it be eth* or p*p*.</span>
+<span class="nv">IFACE</span><span class="o">=</span><span class="s2">&quot;wlp4s0&quot;</span>
+<span class="c"># Change this to your route addr.</span>
+<span class="nv">ROUTE</span><span class="o">=</span><span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="c"># Change this to your vpn **Server addr**</span>
+<span class="nv">VPNHOST</span><span class="o">=</span><span class="s2">&quot;221.239.126.9&quot;</span>
+<span class="nv">VPNADDR</span><span class="o">=</span><span class="sb">`</span>ifconfig ppp0|grep -P -o <span class="s1">&#39;(?&lt;=inet )[0-9.]*&#39;</span><span class="sb">`</span>
+<span class="nv">VPNROUTE</span><span class="o">=</span><span class="sb">`</span>ifconfig ppp0|grep -P -o <span class="s1">&#39;(?&lt;=destination )[0-9.]*&#39;</span><span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&quot;VPN-ADDR:&quot;</span><span class="nv">$VPNADDR</span>
+<span class="nv">cmd</span><span class="o">=</span><span class="s2">&quot;ip route add $VPNHOST via $ROUTE dev $IFACE&quot;</span>
+<span class="nb">echo</span> <span class="nv">$cmd</span>
+<span class="nv">$cmd</span>
+<span class="nv">cmd</span><span class="o">=</span><span class="s2">&quot;route add default gw $VPNROUTE&quot;</span>
+<span class="nb">echo</span> <span class="nv">$cmd</span>
+<span class="nv">$cmd</span>
+<span class="nv">cmd</span><span class="o">=</span><span class="s2">&quot;route del default gw $ROUTE&quot;</span>
+<span class="nb">echo</span> <span class="nv">$cmd</span>
+<span class="nv">$cmd</span>
+<span class="c"># The net is the route&#39;s subnet. be careful.</span>
+route add -net 192.168.1.0/24 gw 192.168.1.1
+<span class="nb">echo</span> -e <span class="s1">&#39;nameserver 8.8.8.8\nsearch 8.8.4.4&#39;</span> &gt; /etc/resolv.conf
+</pre></div>

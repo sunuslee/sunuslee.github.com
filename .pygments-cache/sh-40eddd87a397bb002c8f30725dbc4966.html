@@ -1,0 +1,38 @@
+<div class="highlight"><pre><span class="c">#!/bin/sh</span>
+
+
+<span class="nv">SUNUS_IP</span><span class="o">=</span><span class="s1">&#39;192.168.1.169&#39;</span>
+<span class="nv">VPN_ROUTE</span><span class="o">=</span><span class="sb">`</span>ifconfig ppp0|grep -o <span class="s1">&#39;P-t-P:[0-9.]*&#39;</span>|tr -d <span class="s1">&#39;P-t-P:&#39;</span><span class="sb">`</span>
+<span class="nv">VPN_IP</span><span class="o">=</span><span class="sb">`</span>ifconfig ppp0|grep -o <span class="s1">&#39;addr:[0-9.]*&#39;</span>|tr -d <span class="s1">&#39;addr:&#39;</span><span class="sb">`</span>
+<span class="nv">TMP_RULES_FILE</span><span class="o">=</span><span class="s1">&#39;/tmp/TRF&#39;</span>
+<span class="nv">ROUTE_TABLE</span><span class="o">=</span><span class="s1">&#39;sunusroute&#39;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$VPN_ROUTE&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> -o <span class="s2">&quot;$VPN_IP&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+<span class="k">  </span><span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;No VPN-Connection&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Make sure your xl2tp is working&quot;</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+  <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+sed <span class="s2">&quot;s/PPP0-IP/$VPN_IP/&quot;</span> working-iptables-rule &gt; <span class="nv">$TMP_RULES_FILE</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;VPN-ROUTE:&quot;</span><span class="nv">$VPN_ROUTE</span>
+<span class="nb">echo</span> <span class="s2">&quot;VPN-ADDR:&quot;</span><span class="nv">$VPN_IP</span>
+
+ip route add default via <span class="nv">$VPN_ROUTE</span> dev ppp0 table <span class="nv">$ROUTE_TABLE</span>
+ip rule add from <span class="nv">$SUNUS_IP</span> table <span class="nv">$ROUTE_TABLE</span>
+ip route flush cache
+
+<span class="nb">echo</span> <span class="s2">&quot;setting ip rules and route-policy successfully&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+iptables-restore &lt; <span class="nv">$TMP_RULES_FILE</span>
+<span class="nb">echo</span> <span class="s2">&quot;setting iptables successfully&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;NOW SUNUS CAN USING THE VPN CONNECTING!&quot;</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;\n*********\n&quot;</span>
+</pre></div>
