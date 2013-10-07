@@ -1,15 +1,15 @@
-title:            Site Title
-description:      Describe your website here.
+title:            Sunus & Code
+description:      My blog for coding.
 disqus_shortname: 
 #Comment out url when working locally to resolve base urls correctly
-url:              http://your-website.com
+#url:              http://sunuslee.github.io
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           Sunus lee
   avatar:         avatar.jpg
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  email:          sunus.the.dev@gmail.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       
@@ -40,8 +40,8 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
 future:      true
-pygments:    true
 markdown:    kramdown
+pygments:    true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title
