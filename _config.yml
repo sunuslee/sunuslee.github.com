@@ -1,6 +1,6 @@
 title:            Sunus & Code
 description:      My blog for coding.
-disqus_shortname: 
+disqus_shortname: sunusblog
 #Comment out url when working locally to resolve base urls correctly
 url:              http://sunuslee.github.io
 
@@ -11,9 +11,9 @@ owner:
   bio:            "I am sunus and I love to code:)"
   email:          sunus.the.dev@gmail.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
+  twitter: sunuslee       
   facebook:       
-  github:         
+  github: sunuslee        
   stackexchange:  
   linkedin:       
   instagram:      
