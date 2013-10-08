@@ -2,7 +2,7 @@ title:            Sunus & Code
 description:      My blog for coding.
 disqus_shortname: 
 #Comment out url when working locally to resolve base urls correctly
-url:              http://sunuslee.github.io
+#url:              http://sunuslee.github.io
 
 # Owner/author information
 owner:
@@ -40,8 +40,6 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
 future:      true
-markdown:    kramdown
-pygments:    true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title
@@ -68,3 +66,5 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 code_dir: ./codes
 plugins: plugins
+markdown: rdiscount
+pygments: true # default python pygments have been replaced by pygments.rb
