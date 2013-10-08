@@ -47,6 +47,7 @@ permalink:   /:categories/:title
 # Amount of post to show on home page
 paginate: 5
 
+markdown: kramdown
 kramdown:
   auto_ids: true
   footnote_nr: 1
@@ -66,5 +67,4 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 code_dir: ./codes
 plugins: plugins
-markdown: rdiscount
 pygments: true # default python pygments have been replaced by pygments.rb
