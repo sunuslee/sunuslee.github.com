@@ -2,7 +2,7 @@ title:            Sunus & Code
 description:      My blog for coding.
 disqus_shortname: 
 #Comment out url when working locally to resolve base urls correctly
-#url:              http://sunuslee.github.io
+url:              http://sunuslee.github.io
 
 # Owner/author information
 owner:
