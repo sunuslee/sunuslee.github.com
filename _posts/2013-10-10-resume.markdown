@@ -1,3 +1,13 @@
+---
+layout: post
+title: "My Resume"
+description: ""
+category: ""
+tags: ['resume', 'job']
+comments: true
+---
+
+
 ###联系方式
 * E-mail: <sunuslee [at] gmail [dot] com>
 
