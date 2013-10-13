@@ -386,22 +386,22 @@ stabs:492:483    FUN    0      438    f0100946 3426   cons_init:F(0,18)
 #define N_INVAILD_FUN 0x73
 static void stabs_fix()
 {
-  const struct Stab *stabs, *stab_end;
-  stabs = __STAB_BEGIN__;
-  stab_end = __STAB_END__;
-  static int is_fixed = 0;
-  int i = 0;
-  uint8_t *p_fix;
-  if(is_fixed)
-    return ;
-  for(; i < stab_end - stabs; i++) {
-    if ((stabs[i].n_type == N_FUN) && (stabs[i].n_value < KERNBASE)) {
-      p_fix = (uint8_t *)&stabs[i].n_type;
-      *p_fix = N_INVAILD_FUN;
+    const struct Stab *stabs, *stab_end;
+    stabs = __STAB_BEGIN__;
+    stab_end = __STAB_END__;
+    static int is_fixed = 0;
+    int i = 0;
+    uint8_t *p_fix;
+    if(is_fixed)
+        return ;
+    for(; i < stab_end - stabs; i++) {
+        if ((stabs[i].n_type == N_FUN) && (stabs[i].n_value < KERNBASE)) {
+            p_fix = (uint8_t *)&stabs[i].n_type;
+            *p_fix = N_INVAILD_FUN;
+        }
     }
-  }
-  cprintf("stabs fixed!\n");
-  is_fixed = 1;
+    cprintf("stabs fixed!\n");
+    is_fixed = 1;
 }
 
 {% endhighlight %}
