@@ -408,6 +408,10 @@ static void stabs_fix()
 
 于是, 问题都解决了. 完整代码可以见[github][2]
 
+##UPDATE##
+
+* 问题已经解决, 是gcc的编译参数``-g``和``-gstabs``一起使用引起的.
+* ``-g``添加的额外的调试信息正是那些看似非法的stabs entry.
 
 [1]: http://www.math.utah.edu/docs/info/stabs_toc.html#SEC52
 [2]: https://github.com/sunuslee/Mit-6.828-Fall-2012/commit/b40ecde68da8c9482bf1b4b4cfff7599afa135ec
