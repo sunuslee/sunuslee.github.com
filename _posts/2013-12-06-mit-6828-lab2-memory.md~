@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Mit 6828 lab2 Memory Management"
+description: ""
+category: ""
+tags: ['6.828', 'Operating System']
+comments: true
+---
+
+##Lab2
+
+这个Lab主要是编写内核内存管理的代码:
+
+1. 初始化物理内存, 并实现物理页的**alloc** **free**.
+2. 建立页目录, 页表的两层结构并设置权限.
+3. 编写页基本操作的代码, **创建** / **查询** / **插入** / **删除**.
+4. 按需求初始化各个段的内存, 分配 **kernel / user** 的权限.
+
+
