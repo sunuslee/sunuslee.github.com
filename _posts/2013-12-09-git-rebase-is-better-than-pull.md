@@ -14,7 +14,7 @@ comments: true
 
 如果该项目*只有*你一人开发, 那么git的pull是不会有问题的.
 
-##背景介绍.
+##背景介绍
 
 当前, 我们有2位开发者: *sunus*, *vivian*
 他们想进行pari programming一个项目. 并且该项目是由*god*发起的,已有2次commits.
@@ -95,7 +95,7 @@ git.c
 好了, 现在开始Pari Progamming:)
 
 
-#### *sunus* 写了一些代码, 并且在**本地分支**有2个commits.
+####*sunus* 写了一些代码, 并且在**本地分支**有2个commits.
 
 {% highlight bash %}
 sunus@mbp~[/private/var/tmp/git-pull/sunus] (master ⚡)
@@ -195,7 +195,7 @@ Date:   Mon Dec 9 22:04:41 2013 +0800
 {% endhighlight %}
 
 
-#### *vivian* 也写了一些代码, 并且在**本地分支**有1个commit
+####*vivian* 也写了一些代码, 并且在**本地分支**有1个commit
 
 {% highlight bash %}
 sunus@mbp~[/private/var/tmp/git-pull/vivian] (master ⚡)
@@ -246,7 +246,7 @@ sunus@mbp~[/private/var/tmp/git-pull/vivian] (master ✔)
 [23:25]:
 {% endhighlight %}
 
-####现在是什么情况?####
+####现在是什么情况?
 
 *sunus*, *vivian*都在本地基于**origin上的远程分支**编写了自己的代码.
 但是他们**不知道对方**干了什么. 于是, 他们需要**合并两人的修改, 并且将更新提交到远程dev分支上**
@@ -707,7 +707,7 @@ Date:   Mon Dec 9 22:13:15 2013 +0800
 
 嗯, 看起来好极了~
 
-## 总结
+##总结
 
 * 如果你只是一个人在开发一个项目, 并且在第三方托管(比如github) 那么不管是使用pull还是/fetch rebase都不会有太大问题, 而且pull还是更方便
     * github的**pull request**也是通过将他人的改动, 放到当前历史的最顶端来解决这个问题.
