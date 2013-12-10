@@ -57,6 +57,7 @@ dev
 {% endhighlight %}
 
 PS, 在命令行的末端会显示我们当前所在的branch, 比如在这儿是master.
+
 PSS, branch之后的符号是表示当前的branch是否有被修改但是还没commit的内容: ✔表示没有, ⚡表示有.
 
 现在, *sunus*, *vivian* 他们分别将项目clone到他们的本地.
@@ -92,7 +93,7 @@ sunus@mbp~[/private/var/tmp/git-pull/vivian] (master ✔)
 git.c
 {% endhighlight %}
 
-好了, 现在开始Pari Progamming:)
+好了, 现在开始Pair Progamming:)
 
 
 ####*sunus* 写了一些代码, 并且在**本地分支**有2个commits.
@@ -265,7 +266,7 @@ To /private/var/tmp/git-pull/awesome-project
 Branch master set up to track remote branch dev from origin.
 {% endhighlight %}
 
-这看起来是成功了, *god*也能够看到vivian的改动:)
+这看起来是成功了, *god*也能够看到*vivian*的改动:)
 
 {% highlight bash %}
 sunus@mbp~[/private/var/tmp/git-pull/awesome-project] (dev ✔)
@@ -298,9 +299,9 @@ Date:   Mon Dec 9 22:13:15 2013 +0800
 
 ##PULL
 
-PULL该是git初学者们常用的一个操作, 他们一般认为该操作知识将**本地版本库**与**远程的版本库**同步更新.
+```git pull```该是git初学者们常用的一个操作, 他们一般认为该操作知识将**本地版本库**与**远程的版本库**同步更新.
 
-但是并不知道这**背后实际发生了什么**, 这也是为什么PULL在大多数情况下,单个/少数开发者合作能够work, 但是在实际和多人协作中会造成问题的原因.
+但是并不知道这**背后实际发生了什么**, 这也是为什么pull在大多数情况下,单个/少数开发者合作能够work, 但是在实际和多人协作中会造成问题的原因.
 
 下面是简单的workflow:
 
