@@ -17,7 +17,7 @@ comments: true
 ##背景介绍
 
 当前, 我们有2位开发者: *sunus*, *vivian*
-他们想进行pari programming一个项目. 并且该项目是由*god*发起的,已有2次commits.
+他们想进行pair programming一个项目. 并且该项目是由*god*发起的,已有2次commits.
 他们会将对新的代码提交到**dev**分支上, 之后由*god*将新代码合并到稳定分支**master**
 
 {% highlight bash %}
@@ -717,6 +717,17 @@ Date:   Mon Dec 9 22:13:15 2013 +0800
 
 * 所以最好还是, 多fetch, 多rebase.这样, 版本的记录是能够保持**线性**的, 并且每次改动都能在日志里看得很明白.
 
+##Update:
+
+经好友@hunt提醒, 对本文提出了一点看法(关于merge与rebase):
+
+>内核在更顶端的地方的开发者/维护者使用的是 merge，比如 Linus 合并网络模块
+>maintainer David Miller 的 tree(Merge git://git.kernel.org/pub/scm/linux/kernel/git/davem/net)，
+>David Miller 合并 OpenvSwitch 维护者 Jesse Gross 的 tree(Merge branch 'master' of
+>        git://git.kernel.org/pub/scm/linux/kernel/git/jesse/openvswitch)。而在更为下游的地方，比如
+>OpenvSwitch 社区中，提交给内核模块的代码则是要求开发者使用 rebase 来形成一个线性的提交。这样子形成了一个
+>非常好的分工，Jesse Gross 负责 OpenvSwitch 的模块代码的维护，David Miller 则轻松地进行合并，并关注 net
+>模块核心的一些相关的改动，Linus 同样能轻松地合并 net 模块中的内容，只需要去关注主干树上对基础代码的改动。对
+>开发者来讲，也很容易能明白哪些代码应该提交到哪个列表中，并抄送改动涉及/波及到的相关列表。
 
 [GLB]: http://pcottle.github.io/learnGitBranching/?demo
-
